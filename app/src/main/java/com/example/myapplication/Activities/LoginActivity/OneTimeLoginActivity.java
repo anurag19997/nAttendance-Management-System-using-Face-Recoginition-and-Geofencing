@@ -195,7 +195,7 @@ public class OneTimeLoginActivity extends AppCompatActivity { //implements Loade
                         finish();
                     } else if (valid == 0) {
                         Log.d("Not Valid!!!", userLogin.getUsername() + ", " + userLogin.getPassword());
-                        Toast.makeText(OneTimeLoginActivity.this, "Problem Occurred", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(OneTimeLoginActivity.this, "Problem Occurred", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(OneTimeLoginActivity.this, MainActivity.class);
                         startActivity(i);
                         finish();
@@ -210,7 +210,7 @@ public class OneTimeLoginActivity extends AppCompatActivity { //implements Loade
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.d("OneTimeLoginActivity", "onFailure: " + t.toString());
-                Toast.makeText(OneTimeLoginActivity.this, "Problem making Network call", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(OneTimeLoginActivity.this, "Problem making Network call", Toast.LENGTH_SHORT).show();
 //                Intent intent=new Intent(OneTimeLoginActivity.this, MainActivity.class);
 //                startActivity(intent);
 

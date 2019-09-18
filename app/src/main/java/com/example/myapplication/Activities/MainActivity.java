@@ -37,14 +37,13 @@ import android.widget.Toast;
 
 import com.example.myapplication.Activities.AddingActivities.AddLeadsActivity;
 import com.example.myapplication.Activities.AddingActivities.AddTasksActivity;
-import com.example.myapplication.Activities.LoginActivity.OneTimeLoginActivity;
-import com.example.myapplication.Activities.LoginActivity.SignUpActivity;
 import com.example.myapplication.Models.APIKEY;
 import com.example.myapplication.Models.LocationModel;
 import com.example.myapplication.Models.User;
 import com.example.myapplication.R;
 import com.example.myapplication.Retrofit.LocationClient;
 import com.example.myapplication.Retrofit.PunchInClient;
+import com.example.myapplication.Retrofit.PunchOutClient;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -237,7 +236,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 locationModelList = makeNetworkCallForLocation(apikey);
 
 
-
                 if (day_in_day_out_switch.isChecked()) {
 
 
@@ -252,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         startPoint.setLongitude(locationModel.getLongitude());
 
                         double distance = startPoint.distanceTo(userlocation);
-                        float [] dist = new float[1];
+                        float[] dist = new float[1];
 //                        double distance2 =
                         Location.distanceBetween(locationModel.getLatitude(), locationModel.getLongitude(),
                                 userlocation.getLatitude(), userlocation.getLongitude(), dist);
@@ -262,12 +260,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Toast.makeText(getApplicationContext(), String.valueOf(distance), Toast.LENGTH_LONG).show();
 
                         // the subject is within range
-
                         if (distance < 6000) {
 
                             withinCircumference = 1;
 
-                        // subject is out of range
+                            // subject is out of range
                         } else {
                             withinCircumference = 0;
 //                            day_in_day_out_switch.setChecked(false);
@@ -275,7 +272,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
 
                     if (withinCircumference == 1) {
-//                        makeNetworkCallForPunch(apikey);
+                        makeNetworkCallForPunch(apikey);
                         Toast.makeText(getApplicationContext(), "You are in circumference", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "You are out of circumference", Toast.LENGTH_LONG).show();
@@ -296,7 +293,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     chronometer.start();
 
                 } else {
-//                    makeNetworkCallForPunch(apikey);
+                    makeNetworkCallForPunch(apikey);
                     postDayOutTime();
                     SharedPreferences settings = getSharedPreferences("UserNo", MODE_PRIVATE);
 
@@ -332,55 +329,72 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .baseUrl("http://grofers.isoping.com:92/api/MobileAttendenceSignIn/")
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
-        final PunchInClient punchInClient = retrofit.create(PunchInClient.class);
-        APIKEY apikey1 = new APIKEY(1);
-        Call<ResponseBody> call = punchInClient.getLocationList(apikey1);
+
+        Call<ResponseBody> call;
+
+        //getting api key
+        APIKEY apikey1 = new APIKEY(3);
+
+        if (day_in_day_out_switch.isChecked()) {
+            PunchInClient punchInClient = retrofit.create(PunchInClient.class);
+            call = punchInClient.punchIn(apikey1);
+        } else {
+            PunchOutClient punchOutClient = retrofit.create(PunchOutClient.class);
+            call = punchOutClient.punchOut(apikey1);
+        }
+
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Log.d("MOCK!!!", response.body().byteStream().toString());
-                InputStream result = response.body().byteStream();
-                InputStreamReader isr = new InputStreamReader(result);
-                BufferedReader br = new BufferedReader(isr);
-                StringBuilder sb = new StringBuilder();
-                String buffer = null;
-                try {
-                    buffer = br.readLine();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                while (buffer != null) {
-                    sb.append(buffer);
+                if (response.body() != null) {
+                    Log.d("MOCK!!!", response.body().byteStream().toString());
+                    InputStream result = response.body().byteStream();
+                    InputStreamReader isr = new InputStreamReader(result);
+                    BufferedReader br = new BufferedReader(isr);
+                    StringBuilder sb = new StringBuilder();
+                    String buffer = null;
                     try {
                         buffer = br.readLine();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-
-                String json = sb.toString();
-                Log.d("MainActivity!!!", "onResponse: " + json);
-                Log.d(TAG, "onResponse: " + json);
-                try {
-                    JSONObject jsonObject = new JSONObject(json);
-                    int inserted = jsonObject.getInt("Result");
-                    if (inserted > 0) {
-                        Log.d("Punch In !!!", String.valueOf(inserted));
-                    } else {
-                        Toast.makeText(MainActivity.this, "Attendance not Marked!!!", Toast.LENGTH_SHORT).show();
+                    while (buffer != null) {
+                        sb.append(buffer);
+                        try {
+                            buffer = br.readLine();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+
+                    String json = sb.toString();
+                    Log.d("MainActivity!!!", "onResponse: " + json);
+                    Log.d(TAG, "onResponse: " + json);
+                    try {
+                        JSONArray jsonArray = new JSONArray(json);
+                        JSONObject jsonObject = (JSONObject) jsonArray.get(0);
+//                        JSONObject jsonObject = new JSONObject(String.valueOf(sb));
+                        int inserted = jsonObject.getInt("Result");
+                        if (inserted > 0) {
+                            Log.d("Punch In !!!", String.valueOf(inserted));
+                        } else {
+                            //Toast.makeText(MainActivity.this, "Attendance not Marked!!!", Toast.LENGTH_SHORT).show();
+                            Log.d("Punch In !!!", String.valueOf(inserted));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.d("MOCK!!!", response.toString());
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.d("OneTimeLoginActivity", "onFailure: ");
+                Log.d("Main Activity!!!", "onFailure: ");
                 Toast.makeText(MainActivity.this, "Problem making Network call", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private List<LocationModel> makeNetworkCallForLocation(APIKEY apikey) {

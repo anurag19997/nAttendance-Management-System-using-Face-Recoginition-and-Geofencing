@@ -7,7 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public interface PunchInClient {
-    @POST("PunchInTime")
-    Call<ResponseBody> punchIn(@Body APIKEY apikey);
+public interface PunchOutClient {
+    @POST("PunchOutTime")
+    Call<ResponseBody> punchOut(@Body APIKEY apikey);
 }
