@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "424338384127",
+    "firebase_url": "https://isoping-aa84e.firebaseio.com",
+    "project_id": "isoping-aa84e",
+    "storage_bucket": "isoping-aa84e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424338384127:android:13c3c6a65bcbec53",
+        "android_client_info": {
+          "package_name": "com.isourse.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424338384127-roicpvs1bu2gc9r7hps8cjgb0q3nk2kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isourse.myapplication",
+            "certificate_hash": "318f4fe810aa599f48b86fa035c9112f86918d65"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiYBu2xyHmwngeGtokDoTpmzsP6fhx7F8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424338384127-h314icjs5bov6sdkk1lfq7ks7k2bh4gl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

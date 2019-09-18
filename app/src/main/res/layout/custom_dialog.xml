@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/custom_dialog_scroll_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddingActivities.AddLeadsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/adding_leads_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/norma_margin_small"
+            android:orientation="vertical"
+            android:padding="@dimen/normal_margin">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Next Activity"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/next_activity_spinner2"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/call_again_Checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Call Again" />
+
+                    <RadioButton
+                        android:id="@+id/asked_For_pi_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Introductory Meeting" />
+
+                    <RadioButton
+                        android:id="@+id/call_negotiation_Checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Call for Negotiation" />
+
+                    <RadioButton
+                        android:id="@+id/po_expected_Checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PO expected" />
+
+                    <RadioButton
+                        android:id="@+id/not_intrested_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Not Intrested" />
+
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="With Whom"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/with_whom_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Name"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/pick_date_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Pick a date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/date_picker_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/baseline_date_range_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Time"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/pick_time_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Pick Time"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/time_picker_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/baseline_time_icom" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Place"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/place_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Place"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Address"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/adress_edit_text2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Address"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Remarks"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/remarks_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Remarks"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adding_leads_linear_layout">
+
+            <Button
+                android:id="@+id/update_leads_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adding_leads_linear_layout"
+                android:layout_margin="@dimen/norma_margin_small"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary"
+                android:padding="@dimen/normal_margin"
+                android:text="Update"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/cancel_leads_button2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adding_leads_linear_layout"
+                android:layout_margin="@dimen/norma_margin_small"
+                android:layout_weight="1"
+                android:backgroundTint="@color/hint_color_add_leads"
+                android:padding="@dimen/normal_margin"
+                android:text="Cancel"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication">
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION " />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/grofers_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/grofers_icon"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.LoginActivity.SignUpActivity"></activity>
+        <activity android:name=".PrivacyPolicyActivity" />
+        <activity android:name=".Activities.AddingActivities.AddTasksActivity" />
+        <activity
+            android:name=".Activities.LoginActivity.OneTimeLoginActivity"
+            android:label="@string/title_activity_one_time_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/Theme.AppCompat.DayNight">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.MeetingsActivity"
+            android:label="@string/title_activity_meetings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.LoginActivity.Loginactivityy"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.AddingActivities.AddLeadsActivity" />
+
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="Leads" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="2" />
+
+        <activity
+            android:name=".Activities.CallingActivity"
+            android:label="@string/title_activity_calling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NavigationDrawer"
+            android:label="@string/title_activity_main2" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>

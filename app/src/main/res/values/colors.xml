@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#2A2A2A</color>-->
+<!--    <color name="colorPrimaryDark">#2A2A2A</color>-->
+<!--    <color name="colorAccent">#004d40</color>-->
+<!--    <color name="list_background_color">#FAFAFA</color>-->
+<!--    <color name="dashboard_background_color">#B2DFDB</color>-->
+<!--    <color name="hint_color_add_leads">#cfd8dc</color>-->
+    <color name="colorPrimary">#FBB03B</color>
+    <color name="colorPrimaryDark">#F15B24</color>
+    <color name="colorAccent">#1A83C2</color>
+    <color name="list_background_color">#FAFAFA</color>
+    <color name="dashboard_background_color">#B2DFDB</color>
+    <color name="hint_color_add_leads">#848484</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddingActivities.AddLeadsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/adding_leads_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/norma_margin_small"
+            android:orientation="vertical"
+            android:padding="@dimen/normal_margin">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Lead Owner"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/lead_owner_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Lead Owner"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Company Name"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+
+                <EditText
+                    android:id="@+id/company_name_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Company Name"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="First Name"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/first_name_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter First Name"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Last Name"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/last_name_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Last Name"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Designation"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/designation_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Designation"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Email"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/email_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Email"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Phone No."
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/phone_no_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Phone no"
+                    android:inputType="phone"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Lead Source"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/lead_source_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Lead Source"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Next Activity"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/next_activity_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/pick_date_textview2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Pick a date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/date_picker_image2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/baseline_date_range_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Time"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/pick_time_textview2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Pick Time"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/time_picker_image2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/baseline_time_icom" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Social Network"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/social_network_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Social Network"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Address"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/adress_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Address"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Pan Card Number"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/pan_number_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Pan Number"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Adhaar Card Number"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/adhaar_number_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Adhaar Number"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="GSTIN Number"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/gstin_number_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Pan Number"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Shop Photos"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/shop_photos_imageview"
+                    android:src="@android:drawable/ic_menu_camera" />
+
+                <Button
+                    android:id="@+id/click_shop_photos_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/adding_leads_linear_layout"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:padding="@dimen/normal_margin"
+                    android:text="Click Photos"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Canceled Check Photos"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:id="@+id/canceled_check_photos_imageview"
+                    android:layout_gravity="center_vertical"
+                    android:src="@android:drawable/ic_menu_camera" />
+
+                <Button
+                    android:id="@+id/cancel_check_photos_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/adding_leads_linear_layout"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:padding="@dimen/normal_margin"
+                    android:text="Click Photos"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adding_leads_linear_layout">
+
+            <Button
+                android:id="@+id/save_leads_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adding_leads_linear_layout"
+                android:layout_margin="@dimen/norma_margin_small"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary"
+                android:padding="@dimen/normal_margin"
+                android:text="Save"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/cancel_leads_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adding_leads_linear_layout"
+                android:layout_margin="@dimen/norma_margin_small"
+                android:layout_weight="1"
+                android:backgroundTint="@color/hint_color_add_leads"
+                android:padding="@dimen/normal_margin"
+                android:text="Cancel"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

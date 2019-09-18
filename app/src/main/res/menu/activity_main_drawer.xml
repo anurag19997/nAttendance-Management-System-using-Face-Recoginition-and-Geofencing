@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_add_leads"
+            android:icon="@drawable/baseline_add_leads"
+            android:title="Add Leads" />
+        <item
+            android:id="@+id/navigation_add_task"
+            android:icon="@drawable/baseline_add_task"
+            android:title="Add Tasks" />
+        <item
+            android:id="@+id/navigation_add_event"
+            android:icon="@drawable/ic_add_event"
+            android:title="Add Events" />
+        <item
+            android:id="@+id/navigation_add_issues"
+            android:icon="@drawable/ic_discuss_issue"
+            android:title="Add Issues" />
+        <item
+            android:id="@+id/navigation_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Log Out" />
+    </group>
+
+</menu>

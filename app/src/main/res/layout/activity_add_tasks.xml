@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddingActivities.AddLeadsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/adding_leads_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/norma_margin_small"
+            android:orientation="vertical"
+            android:padding="@dimen/normal_margin">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Project"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/project_name_textview"
+                    android:layout_width="0dp"
+                    android:textSize="16sp"
+                    android:layout_height="24dp"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Tasks"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tasks_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:textSize="16sp"
+                    android:layout_weight="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Tags"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/tags_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Tags"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Assigned to"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/assigned_to_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Start Date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/pick_start_date_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Pick a date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/pick_start_date_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/baseline_date_range_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Due Date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/pick_due_date_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Pick Date"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/pick_due_date_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/baseline_date_range_black" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Hours to Complete"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/choose_hourtocomplete_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:hint="Enter hours to Complete"
+                    android:textColorHint="@color/hint_color_add_leads"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/pick_due_date_imageview"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="8dp"-->
+                    <!--android:src="@drawable/baseline_date_range_black" />-->
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Priority"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/priority_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:textSize="16sp"
+                    android:layout_weight="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Description"
+                    android:textColor="#62757f"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/description_edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/norma_margin_small"
+                    android:layout_weight="2"
+                    android:hint="Enter Description"
+                    android:textColorHint="@color/hint_color_add_leads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Switch
+                    android:id="@+id/tasks_privacy_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Private" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adding_leads_linear_layout"
+            android:gravity="bottom">
+
+            <Button
+                android:id="@+id/save_tasks_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adding_leads_linear_layout"
+                android:layout_margin="@dimen/norma_margin_small"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary"
+                android:padding="@dimen/normal_margin"
+                android:text="bACK"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/cancel_tasks_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adding_leads_linear_layout"
+                android:layout_margin="@dimen/norma_margin_small"
+                android:layout_weight="1"
+                android:backgroundTint="@color/hint_color_add_leads"
+                android:padding="@dimen/normal_margin"
+                android:text="Cancel"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

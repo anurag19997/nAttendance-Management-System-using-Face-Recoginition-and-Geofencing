@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:padding="3dip">
+
+        <ImageView
+            android:id="@+id/caller_imageview"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/baseline_contacts" />
+
+    </LinearLayout>
+
+    <!-- Title Of Song-->
+    <TextView
+        android:id="@+id/caller_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Anurag Sharma"
+        android:textColor="#040404"
+        android:textSize="15dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <!-- Artist Name -->
+    <TextView
+        android:id="@+id/call_reminder_textview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/caller_name_text"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="In 6 hours"
+        android:textColor="#343434"
+        android:textSize="10dip" />
+    <TextView
+        android:id="@+id/user_details_calling_textview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/call_reminder_textview"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Added by Surya on Saturday 12:03PM"
+        android:textColor="#343434"
+        android:textSize="10dip" />
+
+    <!-- Rightend Duration -->
+    <!--<TextView-->
+        <!--android:id="@+id/duration"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignTop="@id/title"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="5dip"-->
+        <!--android:gravity="right"-->
+        <!--android:text="5:45"-->
+        <!--android:textColor="#10bcc9"-->
+        <!--android:textSize="10dip"-->
+        <!--android:textStyle="bold" />-->
+
+    <!-- Rightend Arrow -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/dialer_icon_image"
+            android:layout_marginRight="32dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/update_icon_image"
+            android:src="@drawable/baseline_update_icon" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/dialer_icon_image"
+        android:src="@drawable/baseline_call_black" />
+    </RelativeLayout>
+
+
+</LinearLayout>
