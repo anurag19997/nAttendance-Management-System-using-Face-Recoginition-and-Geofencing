@@ -39,6 +39,7 @@ import com.example.myapplication.Activities.AddingActivities.AddLeadsActivity;
 import com.example.myapplication.Activities.AddingActivities.AddTasksActivity;
 import com.example.myapplication.Models.APIKEY;
 import com.example.myapplication.Models.LocationModel;
+import com.example.myapplication.Models.PunchingModel;
 import com.example.myapplication.Models.User;
 import com.example.myapplication.R;
 import com.example.myapplication.Retrofit.LocationClient;
@@ -134,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     double currentLng;
 
     int yes;
+    double distance = 0;
     int withinCircumference;
 
     List<LocationModel> locationModelList;
@@ -249,9 +251,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         startPoint.setLatitude(locationModel.getLatitude());
                         startPoint.setLongitude(locationModel.getLongitude());
 
-                        double distance = startPoint.distanceTo(userlocation);
+//                        distance = startPoint.distanceTo(userlocation);
                         float[] dist = new float[1];
-//                        double distance2 =
                         Location.distanceBetween(locationModel.getLatitude(), locationModel.getLongitude(),
                                 userlocation.getLatitude(), userlocation.getLongitude(), dist);
                         Log.d("Distance1", String.valueOf(distance));
@@ -272,9 +273,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
 
                     if (withinCircumference == 1) {
-                        makeNetworkCallForPunch(apikey);
+                        PunchingModel punchingModel = new PunchingModel(3, distance);
+                        makeNetworkCallForPunch(punchingModel);
                         Toast.makeText(getApplicationContext(), "You are in circumference", Toast.LENGTH_LONG).show();
                     } else {
+                        //makeNetworkCallForPunch(punchingModel); for distance
                         Toast.makeText(getApplicationContext(), "You are out of circumference", Toast.LENGTH_LONG).show();
                     }
 
@@ -293,7 +296,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     chronometer.start();
 
                 } else {
-                    makeNetworkCallForPunch(apikey);
+                    PunchingModel punchingModel = new PunchingModel(3, distance);
+                    makeNetworkCallForPunch(punchingModel);
                     postDayOutTime();
                     SharedPreferences settings = getSharedPreferences("UserNo", MODE_PRIVATE);
 
@@ -323,7 +327,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void makeNetworkCallForPunch(APIKEY apikey) {
+    private void makeNetworkCallForPunch(PunchingModel punchingModel) {
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://grofers.isoping.com:92/api/MobileAttendenceSignIn/")
@@ -333,21 +337,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Call<ResponseBody> call;
 
         //getting api key
-        APIKEY apikey1 = new APIKEY(3);
+//        APIKEY apikey1 = new APIKEY(3);
 
         if (day_in_day_out_switch.isChecked()) {
             PunchInClient punchInClient = retrofit.create(PunchInClient.class);
-            call = punchInClient.punchIn(apikey1);
+            call = punchInClient.punchIn(punchingModel);
         } else {
             PunchOutClient punchOutClient = retrofit.create(PunchOutClient.class);
-            call = punchOutClient.punchOut(apikey1);
+            call = punchOutClient.punchOut(punchingModel);
         }
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.body() != null) {
-                    Log.d("MOCK!!!", response.body().byteStream().toString());
+                    Log.d("Punching!!!", response.body().byteStream().toString());
                     InputStream result = response.body().byteStream();
                     InputStreamReader isr = new InputStreamReader(result);
                     BufferedReader br = new BufferedReader(isr);

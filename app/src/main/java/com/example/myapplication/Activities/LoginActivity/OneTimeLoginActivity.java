@@ -60,6 +60,7 @@ public class OneTimeLoginActivity extends AppCompatActivity { //implements Loade
         setContentView(R.layout.activity_one_time_login2);
         NameView = (EditText) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
+        autofillform();
         final SharedPreferences sharedPreferences = getSharedPreferences("SharedPreferences", MODE_PRIVATE);
         isAccepted = sharedPreferences.getBoolean("isAccepted", false);
         if (!isAccepted) {
@@ -116,9 +117,9 @@ public class OneTimeLoginActivity extends AppCompatActivity { //implements Loade
     }
 
     private void autofillform() {
-        SharedPreferences settings = getSharedPreferences("UserNo", MODE_PRIVATE);
-        name = settings.getString("name", "null");
-        password = settings.getString("password", "null");
+        SharedPreferences settings = getSharedPreferences("SharedPreferences", MODE_PRIVATE);
+        name = settings.getString("EmailAddress", "null");
+        password = settings.getString("Password", "null");
         if (name.equals("null") || password.equals("null")) {
             return;
         } else {
@@ -190,6 +191,7 @@ public class OneTimeLoginActivity extends AppCompatActivity { //implements Loade
 
                     if (valid > 0) {
                         Toast.makeText(OneTimeLoginActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
+
                         Intent i = new Intent(OneTimeLoginActivity.this, MainActivity.class);
                         startActivity(i);
                         finish();
