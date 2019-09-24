@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     double currentLng;
 
     int yes;
-    double distance = 0;
+    double distance = 100000000;
     int withinCircumference;
 
     List<LocationModel> locationModelList;
@@ -233,9 +233,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 SharedPreferences shared = getSharedPreferences("SharedPreferences", MODE_PRIVATE);
                 int ApiKey = (shared.getInt("APIKEY", 1));
-                APIKEY apikey = new APIKEY(ApiKey);
+//                APIKEY apikey = new APIKEY(ApiKey);
+                APIKEY apikey = new APIKEY(1);
                 apikey.setKey(1);
                 locationModelList = makeNetworkCallForLocation(apikey);
+                LocationModel nearestLocation = new LocationModel();
+                double tempdistance;
 
 
                 if (day_in_day_out_switch.isChecked()) {
@@ -257,10 +260,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 userlocation.getLatitude(), userlocation.getLongitude(), dist);
                         Log.d("Distance1", String.valueOf(distance));
                         Log.d("Distance2", String.valueOf(dist[0] * 0.000621371192f));
-                        distance = dist[0] * 0.000621371192f;
-                        Toast.makeText(getApplicationContext(), String.valueOf(distance), Toast.LENGTH_LONG).show();
+                        tempdistance = dist[0] * 0.000621371192f;
+                        Toast.makeText(getApplicationContext(), String.valueOf(tempdistance), Toast.LENGTH_LONG).show();
 
                         // the subject is within range
+
+                        if(tempdistance < distance) {
+                            distance = tempdistance;
+                            nearestLocation = locationModel;
+                        }
+
+
                         if (distance < 6000) {
 
                             withinCircumference = 1;
@@ -272,12 +282,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                     }
 
+
+                    PunchingModel punchingModel = new PunchingModel(1, nearestLocation.getType(), nearestLocation.getLocId(), distance);
                     if (withinCircumference == 1) {
-                        PunchingModel punchingModel = new PunchingModel(3, distance);
+
                         makeNetworkCallForPunch(punchingModel);
                         Toast.makeText(getApplicationContext(), "You are in circumference", Toast.LENGTH_LONG).show();
                     } else {
-                        //makeNetworkCallForPunch(punchingModel); for distance
+                        makeNetworkCallForPunch(punchingModel); //for distance
                         Toast.makeText(getApplicationContext(), "You are out of circumference", Toast.LENGTH_LONG).show();
                     }
 
@@ -296,7 +308,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     chronometer.start();
 
                 } else {
-                    PunchingModel punchingModel = new PunchingModel(3, distance);
+                    PunchingModel punchingModel = new PunchingModel(1, nearestLocation.getType(), nearestLocation.getLocId(), distance);
                     makeNetworkCallForPunch(punchingModel);
                     postDayOutTime();
                     SharedPreferences settings = getSharedPreferences("UserNo", MODE_PRIVATE);
@@ -437,17 +449,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
                 String json = sb.toString();
-                Log.d("OneTimeLoginActivity", "onResponse: " + json);
+                Log.d("LocationNetworkCall!!!", "onResponse: " + json);
                 try {
                     JSONArray jsonArray = new JSONArray(json);
-                    JSONObject jsonObject = (JSONObject) jsonArray.get(0);
+//                    JSONObject jsonObject = (JSONObject) jsonArray.get(0);
                     Gson gson = new Gson();
-                    LocationModel locationModel = (LocationModel) gson.fromJson(jsonObject.toString(), LocationModel.class);
-                    Log.d("OneTimeLoginActivity", "onResponse: " + locationModel.getLatitude());
-                    locationModelList.add(locationModel);
-                    jsonObject = (JSONObject) jsonArray.get(1);
-                    locationModel = (LocationModel) gson.fromJson(jsonObject.toString(), LocationModel.class);
-                    locationModelList.add(locationModel);
+                    for(int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                        LocationModel locationModel = (LocationModel) gson.fromJson(jsonObject.toString(), LocationModel.class);
+                        Log.d("LocationModel!!!",  locationModel.getDCName().toString());
+                        locationModelList.add(locationModel);
+                    }
+
+//                    jsonObject = (JSONObject) jsonArray.get(1);
+//                    locationModel = (LocationModel) gson.fromJson(jsonObject.toString(), LocationModel.class);
+//                    locationModelList.add(locationModel);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -460,16 +476,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(MainActivity.this, "Problem making Network call", Toast.LENGTH_SHORT).show();
             }
         });
-        Location startPoint = new Location("Dwarka_sector_12");
-        startPoint.setLatitude(28.592140);
-        startPoint.setLongitude(77.046051);
-
-        Location endPoint = new Location("My_Current_Location");
-        endPoint.setLatitude(currentLat);
-        endPoint.setLongitude(currentLng);
-        List<Location> locationList = new ArrayList<Location>();
-        locationList.add(startPoint);
-        locationList.add(endPoint);
+//        Location startPoint = new Location("Dwarka_sector_12");
+//        startPoint.setLatitude(28.592140);
+//        startPoint.setLongitude(77.046051);
+//
+//        Location endPoint = new Location("My_Current_Location");
+//        endPoint.setLatitude(currentLat);
+//        endPoint.setLongitude(currentLng);
+//        List<Location> locationList = new ArrayList<Location>();
+//        locationList.add(startPoint);
+//        locationList.add(endPoint);
         return locationModelList;
     }
 

@@ -9,6 +9,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface LocationClient {
-    @POST("GetLatLong")
+    @POST("GetLocationDPDC ")
     Call<ResponseBody> getLocationList(@Body APIKEY apikey);
 }
